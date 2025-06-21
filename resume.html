@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume | Surinder Singh</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/00FF88/security-checked.png">
 </head>
 
 <body class="bg-black text-green-400 font-sans overflow-hidden">
@@ -14,10 +14,10 @@
   <!-- Navbar -->
   <nav class="flex justify-between items-center p-4 border-b border-green-500">
     <div class="flex items-center space-x-3">
-      <img src="/images/logo.png" alt="Logo" class="w-10 h-10">
-      <h1 class="text-2xl font-bold">Surinder Singh</h1>
+      <img src="/src/logoi.png" alt="Logo" class="w-16 h-16 rounded-full">
+      <h1 class="text-2xl font-bold rounded-full">Surinder Singh</h1>
     </div>
-    <ul class="flex space-x-6">
+    <ul class="flex space-x-6 font-bold">
       <li><a href="index.html" class="hover:text-white">Home</a></li>
       <li><a href="about.html" class="hover:text-white">About</a></li>
       <li><a href="projects.html" class="hover:text-white">Projects</a></li>
@@ -25,16 +25,25 @@
     </ul>
   </nav>
 
-  <!-- Resume Section -->
-  <section class="flex flex-col items-center justify-center text-center h-[calc(100vh-72px)] p-8">
+    <!-- Resume Section -->
+    <section class="flex flex-col items-center justify-center text-center h-[calc(100vh-72px)] p-8">
     <h2 class="text-4xl font-bold mb-8">My Resume</h2>
 
-    <p class="text-lg mb-6 max-w-xl">Download my detailed CV to explore my cybersecurity skills, project history, certifications, and contact details. Available as a PDF for easy viewing.</p>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8 w-full">
+        
+        <!-- PDF Viewer -->
+        <iframe src="src/SurinderResume.pdf" class="w-full md:w-1/2 h-[500px] border-2 border-green-500" title="Surinder Singh Resume"></iframe>
+        
+        <!-- Text & Download Button -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left space-y-6">
+        <p class="text-lg max-w-md">
+            Download my detailed CV to explore my cybersecurity skills, project history, certifications, and contact details. Available as a PDF for easy viewing.
+        </p>
+        <a href="src/SurinderResume.pdf" download class="bg-green-500 text-black px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition">Download Resume PDF</a>
+        </div>
 
-    <a href="/resume/Surinder-Singh-CV.pdf" download class="bg-green-500 text-black px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition">Download Resume PDF</a>
-
-    <iframe src="/resume/Surinder-Singh-CV.pdf" class="w-full h-[500px] mt-8 border-2 border-green-500" title="Surinder Singh Resume"></iframe>
-  </section>
+    </div>
+    </section>
 
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
