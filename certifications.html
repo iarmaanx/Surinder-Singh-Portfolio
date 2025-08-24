@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications | Surinder Singh</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/00FF88/security-checked.png">
+</head>
+
+<body class="bg-black text-green-400 font-sans scroll-smooth">
+
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between p-4 border-b border-green-500 relative">
+    <!-- Logo + Name -->
+    <div class="flex items-center space-x-3">
+      <img src="/src/logoi.png" alt="Logo" class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full">
+      <h1 class="text-xl sm:text-2xl font-bold">Surinder Singh</h1>
+    </div>
+
+    <!-- Hamburger Button (Mobile) -->
+    <div class="block md:hidden">
+      <button id="menu-toggle" class="text-green-400 focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation Links (Desktop) -->
+    <ul class="hidden md:flex space-x-6 font-bold text-lg">
+      <li><a href="index.html" class="hover:text-white">Home</a></li>
+      <li><a href="about.html" class="hover:text-white">About</a></li>
+      <li><a href="projects.html" class="hover:text-white">Projects</a></li>
+      <li><a href="resume.html" class="hover:text-white">Resume</a></li>
+      <li><a href="certifications.html" class="text-white">Certifications</a></li>
+    </ul>
+
+    <!-- Mobile Menu -->
+    <div id="nav-menu"
+      class="hidden absolute top-16 right-4 bg-black border border-green-500 rounded-lg p-4 w-40 z-50 md:hidden text-green-400 font-bold flex flex-col space-y-4">
+      <a href="index.html" class="hover:text-white">Home</a>
+      <a href="about.html" class="hover:text-white">About</a>
+      <a href="projects.html" class="hover:text-white">Projects</a>
+      <a href="resume.html" class="hover:text-white">Resume</a>
+      <a href="certifications.html" class="text-white">Certifications</a>
+    </div>
+  </nav>
+
+  <!-- Certifications Section -->
+  <section class="p-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-10">My Certifications</h2>
+
+    <!-- Certificate Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Certificate Item -->
+      <div class="border border-green-500 rounded-lg overflow-hidden hover:scale-105 transform transition duration-300 hover:shadow-lg hover:shadow-green-500/50">
+        <img src="/src/cert1.jpg" alt="Certificate 1" class="w-full h-64 object-cover">
+      </div>
+
+      <div class="border border-green-500 rounded-lg overflow-hidden hover:scale-105 transform transition duration-300 hover:shadow-lg hover:shadow-green-500/50">
+        <img src="/src/cert2.jpg" alt="Certificate 2" class="w-full h-64 object-cover">
+      </div>
+
+      <div class="border border-green-500 rounded-lg overflow-hidden hover:scale-105 transform transition duration-300 hover:shadow-lg hover:shadow-green-500/50">
+        <img src="/src/cert3.jpg" alt="Certificate 3" class="w-full h-64 object-cover">
+      </div>
+
+      <!-- Add more certificates like this -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="flex flex-col items-center justify-center p-8 space-y-5 border-t border-green-500">
+    <p class="text-lg">&copy; 2025 Surinder Singh | Cyber Security Enthusiast</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
