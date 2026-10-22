@@ -1,539 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Surinder Singh | Cyber Security Enthusiast</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="icon" type="image/png"
-    href="https://img.icons8.com/ios-filled/50/00FF88/security-checked.png" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surinder Singh | Cybersecurity Specialist &amp; Developer</title>
+  <meta name="description" content="Surinder Singh: cybersecurity professional, web developer and content creator. Honeypot telemetry, ethical hacking and secure web apps.">
+  <meta property="og:title" content="Surinder Singh | Cybersecurity &amp; Development">
+  <meta property="og:description" content="Honeypot telemetry, ethical hacking and secure web apps.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root {
+      color-scheme: light;
+      --bg: #e8edf1;
+      --surface: #f6f8fa;
+      --ink: #0d1b26;
+      --muted: #4a5b68;
+      --line: #c3ced7;
+      --accent: #1a47e8;
+      --signal: #ff5a1f;
+      --bar: #0d1b26;
+      --logo-filter: brightness(0) saturate(100%);
     }
-
-    body {
-      animation: fadeIn 0.8s ease-in-out;
-      background: linear-gradient(-45deg, #000000, #001a12, #000000, #002b1f);
-      background-size: 400% 400%;
-      animation:
-        gradient 10s ease infinite,
-        fadeIn 0.8s ease-in-out;
-      overflow-x: hidden;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --bg: #0f1a23;
+        --surface: #16242f;
+        --ink: #e8eef3;
+        --muted: #9db0bf;
+        --line: #2a3d4c;
+        --accent: #7ea2ff;
+        --signal: #ff7a45;
+        --bar: #e8eef3;
+        --logo-filter: brightness(0) saturate(100%) invert(1);
       }
     }
-
-    /* Cursor Effect */
-    #cursor {
-      width: 20px;
-      height: 20px;
-      background: #00ff88;
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 20px #00ff88;
-      z-index: 9999;
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0f1a23;
+      --surface: #16242f;
+      --ink: #e8eef3;
+      --muted: #9db0bf;
+      --line: #2a3d4c;
+      --accent: #7ea2ff;
+      --signal: #ff7a45;
+      --bar: #e8eef3;
+      --logo-filter: brightness(0) saturate(100%) invert(1);
     }
+    :root[data-theme="light"] { color-scheme: light; }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { overflow-x: hidden; background: var(--bg); color: var(--ink); font: 400 1.05rem/1.65 "IBM Plex Sans", system-ui, sans-serif; }
+    h1, h2, h3 { font-family: "Bricolage Grotesque", "Arial Narrow", sans-serif; line-height: 1.05; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+    .wrap { width: min(100% - 48px, 1000px); margin: 0 auto; }
 
-    /* Glassmorphism */
-    .glass {
-      backdrop-filter: blur(14px);
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(0, 255, 136, 0.3);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+    nav { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: var(--bg); }
+    nav .wrap { display: flex; min-height: 68px; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { flex: 0 0 auto; color: var(--ink); font: 700 1.1rem/1 "Bricolage Grotesque", sans-serif; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 18px; padding: 0; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .9rem; text-decoration: none; white-space: nowrap; }
+    .nav-links a:hover, .mobile-menu a:hover { color: var(--ink); }
+    #theme, #menu-toggle {
+      display: grid; width: 40px; height: 40px; flex: 0 0 auto; place-items: center;
+      border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer;
     }
+    #theme svg, #menu-toggle svg { width: 18px; height: 18px; }
+    .mobile-actions, .mobile-menu { display: none; }
 
-    /* Light Mode */
-    .light-mode {
-      background: #f4f4f4 !important;
-      color: black !important;
+    .hero { padding: 96px 0 72px; }
+    .status { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 26px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); font-size: .92rem; }
+    .status i { width: 9px; height: 9px; border-radius: 50%; background: var(--signal); }
+    .hero h1 { max-width: 11ch; font-size: clamp(2.6rem, 8vw, 5.6rem); font-weight: 800; }
+    .redact { position: relative; display: inline-block; }
+    .redact::after { position: absolute; content: ""; inset: 6% -2% 4%; background: var(--bar); transform-origin: right; animation: reveal .9s .5s cubic-bezier(.7, 0, .2, 1) forwards; }
+    .redact.two::after { animation-delay: .85s; }
+    @keyframes reveal { to { transform: scaleX(0); } }
+    .hero p { max-width: 52ch; margin-top: 28px; color: var(--muted); font-size: 1.15rem; }
+    .cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .btn { display: inline-block; padding: 10px 20px; border: 2px solid var(--ink); border-radius: 6px; color: var(--ink); font-weight: 500; text-decoration: none; }
+    .btn.main { background: var(--ink); color: var(--bg); }
+    .btn:hover { border-color: var(--accent); }
+
+    section { padding: 72px 0; border-top: 1px solid var(--line); }
+    section h2 { margin-bottom: 34px; font-size: clamp(1.9rem, 4vw, 2.8rem); }
+    .about { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; }
+    .about p + p { margin-top: 16px; }
+    .skills { padding: 0; border-top: 1px solid var(--line); list-style: none; }
+    .skills li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .skills b { display: block; font-weight: 500; }
+    .skills span { color: var(--muted); font-size: .95rem; }
+
+    .carousel { margin-top: -6px; }
+    .slider { overflow-x: auto; padding: 6px 0; scrollbar-width: none; -ms-overflow-style: none; }
+    .slider::-webkit-scrollbar { display: none; }
+    .track { display: flex; gap: 24px; width: max-content; padding: 0 24px; }
+    .card { display: flex; flex: 0 0 min(340px, 82vw); min-height: 410px; flex-direction: column; justify-content: space-between; padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+    .project-image { width: 100%; height: 160px; margin-bottom: 18px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); object-fit: cover; }
+    .project-image.contain { background: #061321; object-fit: contain; }
+    .card h3 { margin-bottom: 10px; font-size: 1.45rem; }
+    .card p { color: var(--muted); font-size: .98rem; }
+    .card-links { display: flex; align-items: center; gap: 18px; margin-top: 22px; }
+    .card-links .btn { padding: 7px 13px; font-size: .92rem; }
+    .controls { display: flex; align-items: center; gap: 10px; margin-top: 22px; }
+    .controls button { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); cursor: pointer; }
+    .controls button:hover { border-color: var(--accent); }
+    .controls button svg { width: 18px; height: 18px; }
+    .controls span { margin-left: 8px; color: var(--muted); font-size: .88rem; }
+
+    .now { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .now h3 { margin-bottom: 8px; font-size: 1.25rem; }
+    .now p { color: var(--muted); font-size: .98rem; }
+    .certifications { border-top-color: var(--line); background: var(--bg); color: var(--ink); }
+    .certifications-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .certifications-heading h2 { margin-bottom: 10px; }
+    .certifications-heading p { max-width: 55ch; color: var(--muted); }
+    .certifications-link { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--accent); border-radius: 6px; color: var(--accent); font-size: .92rem; text-decoration: none; transition: background .2s, color .2s; }
+    .certifications-link:hover { background: var(--surface); color: var(--ink); }
+    .certifications-link svg { width: 16px; height: 16px; }
+    .certifications-frame { overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+    .certifications iframe { display: block; width: 100%; height: 620px; border: 0; background: var(--surface); }
+    .contact-footer { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; padding: 40px 24px; background: var(--bg); color: var(--ink); text-align: center; }
+    .contact-footer h2 { margin: 0; font-size: clamp(1.9rem, 4vw, 2.4rem); }
+    .contact-footer .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; padding: 0; list-style: none; }
+    .contact-footer .links a { display: flex; align-items: center; gap: 12px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink); text-decoration: none; transition: transform .3s, border-color .3s, background .3s; }
+    .contact-footer .links a:hover { transform: scale(1.04); border-color: var(--accent); background: var(--bg); }
+    .contact-footer .links img { width: 32px; height: 32px; object-fit: contain; filter: var(--logo-filter); }
+    .contact-footer .copyright { margin-top: 0; color: var(--muted); font-size: .9rem; }
+    footer { padding: 26px 0; color: var(--muted); font-size: .9rem; }
+
+    @media (max-width: 900px) { .nav-links { gap: 12px; } .nav-links a { font-size: .82rem; } }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 1000px); }
+      .nav-links { display: none; }
+      .mobile-actions { display: flex; gap: 8px; }
+      .mobile-menu { position: absolute; top: calc(100% + 8px); right: 18px; z-index: 6; width: min(240px, calc(100vw - 36px)); padding: 12px 18px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+      .mobile-menu.open { display: grid; }
+      .mobile-menu a { padding: 8px 0; color: var(--muted); text-decoration: none; }
+      .hero { padding-top: 64px; }
+      .about, .now { grid-template-columns: 1fr; }
+      .certifications-heading { align-items: flex-start; flex-direction: column; }
+      .certifications iframe { height: 500px; }
     }
-
-    .light-mode nav,
-    .light-mode .glass {
-      background: rgba(255, 255, 255, 0.7);
-      color: black;
-      border-color: #00aa66;
+    @media (max-width: 420px) {
+      .wrap { width: min(100% - 32px, 1000px); }
+      .certifications iframe { height: 400px; }
+      .controls span { max-width: 170px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+      .redact::after { transform: scaleX(0); }
     }
   </style>
 </head>
-
-<body class="text-green-400 font-sans">
-
-  <!-- Custom Cursor -->
-  <div id="cursor"></div>
-
-  <!-- Navbar -->
-  <nav
-    class="glass flex items-center justify-between p-4 border-b border-green-500 sticky top-0 z-50">
-
-    <!-- Logo -->
-    <div class="flex items-center space-x-3">
-      <img src="/src/logoi.png"
-        alt="Logo"
-        class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full object-cover border border-green-500">
-
-      <h1 class="text-xl sm:text-2xl font-bold">
-        Surinder Singh
-      </h1>
+<body>
+  <nav aria-label="Main navigation">
+    <div class="wrap">
+      <a class="brand" href="#top">Surinder Singh</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><button id="theme" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg></button></li>
+      </ul>
+      <div class="mobile-actions">
+        <button id="theme-mobile" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg></button>
+        <button id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#now">Now</a>
+        <a href="#certifications">Certifications</a><a href="#contact">Contact</a><a href="resume.html">Resume</a>
+      </div>
     </div>
-
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex space-x-8 font-semibold text-lg">
-      <li>
-        <a href="index.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          Home
-        </a>
-      </li>
-
-      <li>
-        <a href="about.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          About
-        </a>
-      </li>
-
-      <li>
-        <a href="projects.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          Projects
-        </a>
-      </li>
-
-      <li>
-        <a href="resume.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          Resume
-        </a>
-      </li>
-
-      <li>
-        <a href="certifications.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          Certifications
-        </a>
-      </li>
-    </ul>
-
-    <!-- Right Side -->
-    <div class="flex items-center gap-4">
-
-      <!-- Dark Mode Toggle -->
-      <button id="theme-toggle"
-        class="border border-green-500 px-4 py-2 rounded-xl hover:bg-green-500 hover:text-black transition duration-300">
-        🌙
-      </button>
-
-      <!-- Hamburger -->
-      <button id="menu-toggle"
-        class="md:hidden text-green-400">
-        <svg class="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24">
-          <path stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="nav-menu"
-      class="hidden absolute top-20 right-4 glass rounded-2xl p-6 w-52 z-50 md:hidden flex flex-col gap-5 text-lg">
-
-      <a href="index.html"
-        class="hover:text-white transition">
-        Home
-      </a>
-
-      <a href="about.html"
-        class="hover:text-white transition">
-        About
-      </a>
-
-      <a href="projects.html"
-        class="hover:text-white transition">
-        Projects
-      </a>
-
-      <a href="resume.html"
-        class="hover:text-white transition">
-        Resume
-      </a>
-
-      <a href="certifications.html"
-        class="hover:text-white transition">
-        Certifications
-      </a>
-
-    </div>
-
   </nav>
 
-  <!-- Hero Section -->
-  <section
-    class="flex flex-col items-center justify-center text-center min-h-screen px-6">
-
-    <!-- Profile Image -->
-    <img src="/src/banner.jpg"
-      alt="Surinder Singh"
-      class="w-56 h-56 mt-8 md:w-[320px] md:h-[320px] rounded-full object-cover border-4 border-green-500 shadow-[0_0_40px_#00ff88] hover:scale-105 transition duration-500">
-
-    <!-- Name -->
-    <h2 class="text-4xl md:text-6xl font-bold mt-8 mb-5">
-      Hi, I'm Surinder Singh
-    </h2>
-
-    <!-- Typewriter -->
-    <p id="typewriter"
-      class="text-lg md:text-2xl h-10 font-medium">
-    </p>
-
-    <!-- Buttons -->
-    <div class="flex flex-wrap justify-center gap-5 mt-10">
-
-      <a href="projects.html"
-        class="glass px-6 py-3 rounded-2xl hover:scale-105 hover:shadow-[0_0_25px_#00ff88] transition duration-300">
-        View Projects
-      </a>
-
-      <a href="resume.html"
-        class="glass px-6 py-3 rounded-2xl hover:scale-105 hover:shadow-[0_0_25px_#00ff88] transition duration-300">
-        Resume
-      </a>
-
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="status"><i aria-hidden="true"></i>Biometric Integration Intern at Shivsoft</div>
+      <h1>I think like an <span class="redact">attacker.</span> Defend like a <span class="redact two">pro.</span></h1>
+      <p>Cybersecurity professional, web developer and content creator. I run honeypot labs, practice ethical hacking and ship secure web apps.</p>
+      <div class="cta"><a class="btn main" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
     </div>
+  </header>
 
-    <!-- Scroll Down -->
-    <a href="#socials"
-      class="mt-20 animate-bounce">
-      <svg xmlns="http://www.w3.org/2000/svg"
-        class="h-12 w-12 text-green-500"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor">
-
-        <path stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 4v12" />
-
-        <path stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 13l7 7 7-7" />
-      </svg>
-    </a>
-
+  <section id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <div class="about">
+        <div>
+          <p>I work across both sides of security: testing systems in controlled labs to understand how they break, and building web applications that hold up against those attacks.</p>
+          <p>I also teach what I learn. My YouTube and Instagram channels turn cybersecurity topics into short, practical videos for beginners.</p>
+        </div>
+        <ul class="skills">
+          <li><b>Ethical hacking</b><span>Penetration testing, vulnerability analysis, red teaming</span></li>
+          <li><b>Network security</b><span>Firewalls, traffic monitoring, threat detection</span></li>
+          <li><b>Web development</b><span>React, Vite, Node, Tailwind, Netlify</span></li>
+          <li><b>Content creation</b><span>Security awareness videos and short-form content</span></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <!-- Skills Section -->
-  <section class="px-6 py-20">
-
-    <h2 class="text-4xl font-bold text-center mb-14">
-      Skills
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-8">
-
-      <div
-        class="glass rounded-3xl p-8 hover:scale-105 hover:shadow-[0_0_30px_#00ff88] transition duration-300">
-        <h3 class="text-2xl font-bold mb-4">
-          Ethical Hacking
-        </h3>
-
-        <p>
-          Skilled in penetration testing, vulnerability analysis, and cyber defense.
-        </p>
+  <section id="projects">
+    <div class="wrap"><h2>Projects</h2></div>
+    <div class="carousel" aria-label="Projects">
+      <div class="slider" id="slider" tabindex="0" aria-label="Project cards">
+        <div class="track" id="track">
+          <article class="card"><div><img class="project-image" src="src/password.jpeg" alt="Password strength checker preview" loading="lazy"><h3>Password Strength Checker</h3><p>Checks how strong a password is in real time, based on length, character variety and special symbols.</p></div><div class="card-links"><a class="btn main" href="https://password-strength-checker-surinder.netlify.app" target="_blank" rel="noopener noreferrer">Live demo</a><a href="https://github.com/Whitedevil0237/Password-Strength-Checker" target="_blank" rel="noopener noreferrer">Source</a></div></article>
+          <article class="card"><div><img class="project-image" src="src/guess the password.jpg" alt="Guess the Password Game login screen preview" loading="lazy"><h3>Guess the Password Game</h3><p>A hint-based game where you crack the secret password within a limited number of attempts.</p></div><div class="card-links"><a class="btn main" href="https://password-guess-game.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo</a><a href="https://github.com/Whitedevil0237/Password-Guess-Game" target="_blank" rel="noopener noreferrer">Source</a></div></article>
+          <article class="card"><div><img class="project-image" src="src/encryption.jpeg" alt="Encryption and decryption project preview" loading="lazy"><h3>Encryption &amp; Decryption</h3><p>Encrypts and decrypts messages in real time so private text stays unreadable to anyone else.</p></div><div class="card-links"><a class="btn main" href="https://msg-securely.netlify.app" target="_blank" rel="noopener noreferrer">Live demo</a><a href="https://github.com/Whitedevil0237/Encryption-Decryption-" target="_blank" rel="noopener noreferrer">Source</a></div></article>
+          <article class="card"><div><img class="project-image" src="src/phishing.webp" alt="Phishing awareness demonstration preview" loading="lazy"><h3>Instagram Fake Login Page</h3><p>A security awareness demo that shows how phishing login pages work and how to spot them.</p></div><div class="card-links"><a class="btn main" href="https://fakelogin-page.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo</a><a href="https://github.com/Whitedevil0237/fake-login-page" target="_blank" rel="noopener noreferrer">Source</a></div></article>
+          <article class="card"><div><img class="project-image contain" src="src/followupmanger.webp" alt="FollowU Manager app preview" loading="lazy"><h3>FollowU Manager</h3><p>A web app to manage and track follower analytics, engagement and user interactions.</p></div><div class="card-links"><a class="btn main" href="https://followumanager.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo</a><a href="https://github.com/Whitedevil0237/Followupmanager" target="_blank" rel="noopener noreferrer">Source</a></div></article>
+          <article class="card"><div><img class="project-image" src="src/Honeyport.png" alt="Honeypot Analyzer cybersecurity simulation preview" loading="lazy"><h3>Cyber Defense Simulator</h3><p>An interactive simulation of threat detection, defense strategies and real-time incident analysis.</p></div><div class="card-links"><a class="btn main" href="https://cyber-defense-sim--surindersingh01.replit.app/" target="_blank" rel="noopener noreferrer">Live demo</a></div></article>
+        </div>
       </div>
-
-      <div
-        class="glass rounded-3xl p-8 hover:scale-105 hover:shadow-[0_0_30px_#00ff88] transition duration-300">
-        <h3 class="text-2xl font-bold mb-4">
-          Network Security
-        </h3>
-
-        <p>
-          Experience in securing networks, firewalls, and monitoring threats.
-        </p>
+      <div class="wrap controls">
+        <button id="prev" type="button" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button id="next" type="button" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        <span>Pause on hover or touch. Swipe or use the arrows to move.</span>
       </div>
-
-      <div
-        class="glass rounded-3xl p-8 hover:scale-105 hover:shadow-[0_0_30px_#00ff88] transition duration-300">
-        <h3 class="text-2xl font-bold mb-4">
-          Content Creation
-        </h3>
-
-        <p>
-          Sharing cybersecurity awareness through social platforms and videos.
-        </p>
-      </div>
-
     </div>
-
   </section>
 
-
-  <!-- What I'm Learning Section -->
-<section class="max-w-6xl mx-auto px-6 py-20">
-
-  <h2 class="text-4xl font-bold text-center mb-14">
-    What I'm Learning
-  </h2>
-
-  <div class="grid md:grid-cols-3 gap-8">
-
-    <!-- Card 1 -->
-    <div
-      class="glass rounded-3xl p-8 hover:scale-105 hover:shadow-[0_0_30px_#00ff88] transition duration-300">
-
-      <div class="text-5xl mb-5">
-        🛡️
+  <section id="now">
+    <div class="wrap">
+      <h2>What I'm working on</h2>
+      <div class="now">
+        <div><h3>Learning</h3><p>Penetration testing methodology and hands-on rooms on TryHackMe.</p></div>
+        <div><h3>Exploring</h3><p>How AI can improve threat detection and automate security workflows.</p></div>
+        <div><h3>Building</h3><p>A secure login system with strong authentication and abuse protection.</p></div>
       </div>
-
-      <h3 class="text-2xl font-bold mb-4">
-        Learning
-      </h3>
-
-      <p class="text-lg leading-relaxed">
-        Deep diving into 
-        <span class="font-semibold text-white">
-          Penetration Testing
-        </span>
-        and ethical hacking methodologies.
-      </p>
-
     </div>
+  </section>
 
-    <!-- Card 2 -->
-    <div
-      class="glass rounded-3xl p-8 hover:scale-105 hover:shadow-[0_0_30px_#00ff88] transition duration-300">
-
-      <div class="text-5xl mb-5">
-        🤖
+  <section class="certifications" id="certifications">
+    <div class="wrap">
+      <div class="certifications-heading">
+        <div>
+          <h2>Certifications</h2>
+          <p>Explore my cybersecurity training and certifications. Open any item to view its details.</p>
+        </div>
+        <a class="certifications-link" href="https://drive.google.com/drive/folders/1CM8zrioPSYToLZDsQTK_Zg0gg6IdByK1" target="_blank" rel="noopener noreferrer">
+          View folder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
       </div>
-
-      <h3 class="text-2xl font-bold mb-4">
-        Exploring
-      </h3>
-
-      <p class="text-lg leading-relaxed">
-        Researching how 
-        <span class="font-semibold text-white">
-          AI can improve Cybersecurity
-        </span>
-        through threat detection and automation.
-      </p>
-
-    </div>
-
-    <!-- Card 3 -->
-    <div
-      class="glass rounded-3xl p-8 hover:scale-105 hover:shadow-[0_0_30px_#00ff88] transition duration-300">
-
-      <div class="text-5xl mb-5">
-        💻
+      <div class="certifications-frame">
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1CM8zrioPSYToLZDsQTK_Zg0gg6IdByK1#grid" title="Surinder Singh's certifications on Google Drive" loading="lazy"></iframe>
       </div>
-
-      <h3 class="text-2xl font-bold mb-4">
-        Currently Building
-      </h3>
-
-      <p class="text-lg leading-relaxed">
-        Developing a 
-        <span class="font-semibold text-white">
-          Secure Login System
-        </span>
-        with authentication and protection features.
-      </p>
-
     </div>
+  </section>
 
-  </div>
-
-</section>
-
-  <!-- Footer -->
-  <footer id="socials"
-    class="flex flex-col items-center justify-center p-10 space-y-8">
-
-    <h2 class="text-3xl font-bold">
-      Connect With Me
-    </h2>
-
-    <div class="flex flex-wrap justify-center gap-8">
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/cybersurinder/"
-        target="_blank"
-        class="glass p-5 rounded-2xl hover:scale-110 hover:shadow-[0_0_30px_#00ff88] transition duration-300 flex items-center gap-3">
-
-        <img src="https://img.icons8.com/ios-filled/50/00FF88/instagram-new.png"
-          class="w-8 h-8">
-
-        <span>Instagram</span>
-      </a>
-
-      <!-- YouTube -->
-      <a href="https://www.youtube.com/@Cyber_Surinder"
-        target="_blank"
-        class="glass p-5 rounded-2xl hover:scale-110 hover:shadow-[0_0_30px_#00ff88] transition duration-300 flex items-center gap-3">
-
-        <img src="https://img.icons8.com/ios-filled/50/00FF88/youtube-play.png"
-          class="w-8 h-8">
-
-        <span>YouTube</span>
-      </a>
-
-      <!-- LinkedIn -->
-      <a href="http://www.linkedin.com/in/cyber-surinder"
-        target="_blank"
-        class="glass p-5 rounded-2xl hover:scale-110 hover:shadow-[0_0_30px_#00ff88] transition duration-300 flex items-center gap-3">
-
-        <img src="https://img.icons8.com/ios-filled/50/00FF88/linkedin.png"
-          class="w-8 h-8">
-
-        <span>LinkedIn</span>
-      </a>
-
-      <!-- GitHub -->
-      <a href="https://github.com/Whitedevil0237"
-        target="_blank"
-        class="glass p-5 rounded-2xl hover:scale-110 hover:shadow-[0_0_30px_#00ff88] transition duration-300 flex items-center gap-3">
-
-        <img src="https://img.icons8.com/ios-filled/50/00FF88/github.png"
-          class="w-8 h-8">
-
-        <span>GitHub</span>
-      </a>
-
-            <!-- TryHackMe -->
-      <a href="https://tryhackme.com/p/surindersingh07694"
-        target="_blank"
-        class="glass p-5 rounded-2xl hover:scale-110 hover:shadow-[0_0_30px_#00ff88] transition duration-300 flex items-center gap-3">
-
-        <img src="https://assets.tryhackme.com/img/favicon.png"
-            alt="TryHackMe"
-            class="w-8 h-8">
-
-        <span>TryHackMe</span>
-      </a>
-
-    </div>
-
-    <p class="text-sm text-gray-400 mt-6">
-      © 2026 Surinder Singh. All Rights Reserved.
-    </p>
-
+  <footer id="contact" class="contact-footer">
+    <h2>Connect With Me</h2>
+    <ul class="links">
+      <li><a href="https://www.instagram.com/cybersurinder/" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios-filled/50/00FF88/instagram-new.png" alt=""><span>Instagram</span></a></li>
+      <li><a href="https://www.youtube.com/@Cyber_Surinder" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios-filled/50/00FF88/youtube-play.png" alt=""><span>YouTube</span></a></li>
+      <li><a href="https://www.linkedin.com/in/cyber-surinder" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios-filled/50/00FF88/linkedin.png" alt=""><span>LinkedIn</span></a></li>
+      <li><a href="https://github.com/Whitedevil0237" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios-filled/50/00FF88/github.png" alt=""><span>GitHub</span></a></li>
+      <li><a href="https://tryhackme.com/p/surindersingh07694" target="_blank" rel="noopener noreferrer"><img src="https://assets.tryhackme.com/img/favicon.png" alt=""><span>TryHackMe</span></a></li>
+    </ul>
+    <p class="copyright">&copy; 2026 Surinder Singh. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButtons = [document.getElementById("theme"), document.getElementById("theme-mobile")];
+      const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const themeStorageKey = "surinder-portfolio-theme";
 
-    // Typewriter Effect
-    const text =
-      "Cyber Security Enthusiast | Ethical Hacker | Defender of the Digital Realm";
-
-    const speed = 50;
-
-    let i = 0;
-
-    function typeWriter() {
-
-      if (i < text.length) {
-
-        document.getElementById("typewriter").innerHTML += text.charAt(i);
-
-        i++;
-
-        setTimeout(typeWriter, speed);
-
-      } else {
-
-        setTimeout(() => {
-
-          document.getElementById("typewriter").innerHTML = "";
-
-          i = 0;
-
-          typeWriter();
-
-        }, 1500);
-
+      try {
+        const savedTheme = window.localStorage.getItem(themeStorageKey);
+        if (savedTheme === "light" || savedTheme === "dark") root.dataset.theme = savedTheme;
+      } catch (error) {
+        console.warn("Unable to load the saved theme preference.", error);
       }
 
-    }
+      function updateThemeButtons() {
+        const dark = root.dataset.theme ? root.dataset.theme === "dark" : themeQuery.matches;
+        themeButtons.forEach((button) => {
+          button.setAttribute("aria-label", `Switch to ${dark ? "light" : "dark"} theme`);
+          button.setAttribute("title", `Switch to ${dark ? "light" : "dark"} theme`);
+          button.innerHTML = dark
+            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>'
+            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg>';
+        });
+      }
 
-    window.onload = typeWriter;
+      themeButtons.forEach((button) => button.addEventListener("click", () => {
+        const dark = root.dataset.theme ? root.dataset.theme === "dark" : themeQuery.matches;
+        const nextTheme = dark ? "light" : "dark";
+        root.dataset.theme = nextTheme;
+        try {
+          window.localStorage.setItem(themeStorageKey, nextTheme);
+        } catch (error) {
+          console.warn("Unable to save the theme preference.", error);
+        }
+        updateThemeButtons();
+      }));
+      themeQuery.addEventListener("change", () => {
+        if (!root.dataset.theme) updateThemeButtons();
+      });
+      updateThemeButtons();
 
-    // Mobile Menu
-    const toggleBtn = document.getElementById('menu-toggle');
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuToggle.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      });
+      mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }));
 
-    const navMenu = document.getElementById('nav-menu');
+      const slider = document.getElementById("slider");
+      const track = document.getElementById("track");
+      const originalCards = Array.from(track.children);
+      originalCards.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("a").forEach((link) => { link.tabIndex = -1; });
+        track.appendChild(clone);
+      });
 
-    toggleBtn.addEventListener('click', () => {
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let cycleWidth = 0;
+      let position = 0;
+      let paused = reducedMotion;
+      let resumeTimer;
 
-      navMenu.classList.toggle('hidden');
+      function measure() {
+        cycleWidth = track.children[originalCards.length].offsetLeft - track.children[0].offsetLeft;
+        position = cycleWidth;
+        slider.scrollLeft = position;
+      }
+      function normalize() {
+        if (!cycleWidth) return;
+        if (slider.scrollLeft < cycleWidth) slider.scrollLeft += cycleWidth;
+        else if (slider.scrollLeft >= cycleWidth * 2) slider.scrollLeft -= cycleWidth;
+        position = slider.scrollLeft;
+      }
 
-    });
+      measure();
+      window.addEventListener("resize", measure);
+      slider.addEventListener("scroll", () => {
+        if (paused || reducedMotion) normalize();
+      }, { passive: true });
+      ["mouseenter", "focusin", "touchstart", "pointerdown"].forEach((eventName) => {
+        slider.addEventListener(eventName, () => { paused = true; });
+      });
+      ["mouseleave", "focusout", "touchend", "pointerup", "pointercancel"].forEach((eventName) => {
+        slider.addEventListener(eventName, () => {
+          position = slider.scrollLeft;
+          paused = reducedMotion;
+        });
+      });
 
-    // Cursor Effect
-    const cursor = document.getElementById('cursor');
+      function animate() {
+        if (!paused && cycleWidth) {
+          position += 0.55;
+          if (position >= cycleWidth * 2) position -= cycleWidth;
+          slider.scrollLeft = position;
+        }
+        if (!reducedMotion) window.requestAnimationFrame(animate);
+      }
+      if (!reducedMotion) window.requestAnimationFrame(animate);
 
-    document.addEventListener('mousemove', (e) => {
-
-      cursor.style.left = e.clientX + 'px';
-
-      cursor.style.top = e.clientY + 'px';
-
-    });
-
-    // Dark Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-
-    themeToggle.addEventListener('click', () => {
-
-      document.body.classList.toggle('light-mode');
-
-    });
-
+      function step(direction) {
+        paused = true;
+        window.clearTimeout(resumeTimer);
+        slider.scrollBy({ left: direction * 360, behavior: reducedMotion ? "auto" : "smooth" });
+        resumeTimer = window.setTimeout(() => {
+          normalize();
+          paused = reducedMotion;
+        }, 900);
+      }
+      document.getElementById("prev").addEventListener("click", () => step(-1));
+      document.getElementById("next").addEventListener("click", () => step(1));
+    })();
   </script>
-
 </body>
-
 </html>

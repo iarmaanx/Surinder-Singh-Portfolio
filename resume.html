@@ -1,163 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Resume | Surinder Singh</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/00FF88/security-checked.png">
+  <meta name="description" content="View and download Surinder Singh's cybersecurity resume.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #e8edf1;
+      --surface: #f6f8fa;
+      --ink: #0d1b26;
+      --muted: #4a5b68;
+      --line: #c3ced7;
+      --accent: #1a47e8;
+      --signal: #ff5a1f;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --bg: #0f1a23;
+        --surface: #16242f;
+        --ink: #e8eef3;
+        --muted: #9db0bf;
+        --line: #2a3d4c;
+        --accent: #7ea2ff;
+        --signal: #ff7a45;
+      }
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0f1a23;
+      --surface: #16242f;
+      --ink: #e8eef3;
+      --muted: #9db0bf;
+      --line: #2a3d4c;
+      --accent: #7ea2ff;
+      --signal: #ff7a45;
+    }
+    :root[data-theme="light"] { color-scheme: light; }
+    * { box-sizing: border-box; margin: 0; }
+    html { min-height: 100%; scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { min-height: 100vh; overflow-x: hidden; background: var(--bg); color: var(--ink); font: 400 1.05rem/1.65 "IBM Plex Sans", system-ui, sans-serif; }
+    h1, h2 { font-family: "Bricolage Grotesque", "Arial Narrow", sans-serif; line-height: 1.05; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+    .wrap { width: min(100% - 48px, 1000px); margin: 0 auto; }
+
+    nav { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: var(--bg); }
+    nav .wrap { display: flex; min-height: 68px; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { flex: 0 0 auto; color: var(--ink); font: 700 1.1rem/1 "Bricolage Grotesque", sans-serif; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 18px; padding: 0; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .9rem; text-decoration: none; white-space: nowrap; }
+    .nav-links a:hover, .mobile-menu a:hover { color: var(--ink); }
+    #theme, #menu-toggle {
+      display: grid; width: 40px; height: 40px; flex: 0 0 auto; place-items: center;
+      border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer;
+    }
+    #theme svg, #menu-toggle svg { width: 18px; height: 18px; }
+    .mobile-actions, .mobile-menu { display: none; }
+
+    main { padding: 72px 0; }
+    .resume-heading { margin-bottom: 34px; }
+    .resume-heading h1 { margin-bottom: 12px; font-size: clamp(2rem, 5vw, 3rem); }
+    .resume-heading p { max-width: 58ch; color: var(--muted); }
+    .resume-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); align-items: start; gap: 32px; }
+    .resume-frame { display: block; width: 100%; height: 680px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+    .resume-copy { padding: 24px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+    .resume-copy p { margin-bottom: 22px; color: var(--muted); }
+    .download-link { display: inline-block; padding: 10px 18px; border: 2px solid var(--ink); border-radius: 6px; background: var(--ink); color: var(--bg); font-weight: 500; text-decoration: none; transition: border-color .2s, background .2s; }
+    .download-link:hover { border-color: var(--accent); background: var(--accent); }
+    footer { padding: 26px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+    @media (max-width: 900px) { .nav-links { gap: 12px; } .nav-links a { font-size: .82rem; } }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 1000px); }
+      .nav-links { display: none; }
+      .mobile-actions { display: flex; gap: 8px; }
+      .mobile-menu { position: absolute; top: calc(100% + 8px); right: 18px; z-index: 6; width: min(240px, calc(100vw - 36px)); padding: 12px 18px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+      .mobile-menu.open { display: grid; }
+      .mobile-menu a { padding: 8px 0; color: var(--muted); text-decoration: none; }
+      main { padding: 48px 0; }
+      .resume-layout { grid-template-columns: 1fr; }
+      .resume-frame { height: min(70vh, 600px); }
+    }
+    @media (max-width: 420px) { .wrap { width: min(100% - 32px, 1000px); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
 </head>
-
-<body class="bg-black text-green-400 font-sans">
-
-<nav
-    class="glass flex items-center justify-between p-4 border-b border-green-500  top-0 z-50">
-
-    <!-- Logo -->
-    <div class="flex items-center space-x-3">
-      <img src="/src/logoi.png"
-        alt="Logo"
-        class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full object-cover border border-green-500">
-
-      <h1 class="text-xl sm:text-2xl font-bold">
-        Surinder Singh
-      </h1>
+<body>
+  <nav aria-label="Main navigation">
+    <div class="wrap">
+      <a class="brand" href="index.html#top">Surinder Singh</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#now">Now</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="resume.html" aria-current="page">Resume</a></li>
+        <li><button id="theme" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"></button></li>
+      </ul>
+      <div class="mobile-actions">
+        <button id="theme-mobile" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"></button>
+        <button id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#about">About</a><a href="index.html#projects">Projects</a><a href="index.html#now">Now</a>
+        <a href="index.html#certifications">Certifications</a><a href="index.html#contact">Contact</a><a href="resume.html" aria-current="page">Resume</a>
+      </div>
     </div>
-
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex space-x-8 font-semibold text-lg">
-      <li>
-        <a href="index.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          Home
-        </a>
-      </li>
-
-      <li>
-        <a href="about.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          About
-        </a>
-      </li>
-
-      <li>
-        <a href="projects.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          Projects
-        </a>
-      </li>
-
-      <li>
-        <a href="resume.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          Resume
-        </a>
-      </li>
-
-      <li>
-        <a href="certifications.html"
-          class="hover:text-white transition duration-300 hover:scale-110">
-          Certifications
-        </a>
-      </li>
-    </ul>
-
-    <!-- Right Side -->
-    <div class="flex items-center gap-4">
-
-      <!-- Dark Mode Toggle -->
-      <button id="theme-toggle"
-        class="border border-green-500 px-4 py-2 rounded-xl hover:bg-green-500 hover:text-black transition duration-300">
-        🌙
-      </button>
-
-      <!-- Hamburger -->
-      <button id="menu-toggle"
-        class="md:hidden text-green-400">
-        <svg class="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24">
-          <path stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="nav-menu"
-      class="hidden absolute top-20 right-4 glass rounded-2xl p-6 w-52 z-50 md:hidden flex flex-col gap-5 text-lg">
-
-      <a href="index.html"
-        class="hover:text-white transition">
-        Home
-      </a>
-
-      <a href="about.html"
-        class="hover:text-white transition">
-        About
-      </a>
-
-      <a href="projects.html"
-        class="hover:text-white transition">
-        Projects
-      </a>
-
-      <a href="resume.html"
-        class="hover:text-white transition">
-        Resume
-      </a>
-
-      <a href="certifications.html"
-        class="hover:text-white transition">
-        Certifications
-      </a>
-
-    </div>
-
   </nav>
 
-
-  <!-- Resume Section -->
-  <section class="flex flex-col items-center justify-center text-center min-h-[calc(100vh-72px)] p-4 md:p-8">
-    <h2 class="text-3xl sm:text-4xl font-bold mb-6 md:mb-8">My Resume</h2>
-
-    <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 w-full max-w-6xl">
-      
-      <!-- PDF Viewer -->
-      <iframe src="src/SurinderResume.pdf"
-        class="w-full h-[450px] sm:h-[500px] md:w-1/2 border-2 border-green-500 rounded-lg"
-        title="Surinder Singh Resume"></iframe>
-
-      <!-- Text & Download Button -->
-      <div class="flex flex-col items-center md:items-start text-center md:text-left space-y-4 md:space-y-6 max-w-md">
-        <p class="text-base sm:text-lg leading-relaxed">
-          Download my detailed CV to explore my cybersecurity skills, project history, certifications, and contact details.
-          Available as a PDF for easy viewing.
-        </p>
-        <a href="src/SurinderResume.pdf" download
-          class="bg-green-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition">
-          Download Resume PDF
-        </a>
+  <main>
+    <div class="wrap">
+      <header class="resume-heading">
+        <h1>My Resume</h1>
+        <p>View or download my detailed CV to explore my cybersecurity skills, project history, certifications, and experience.</p>
+      </header>
+      <div class="resume-layout">
+        <iframe class="resume-frame" src="src/SurinderResume.pdf" title="Surinder Singh resume PDF"></iframe>
+        <div class="resume-copy">
+          <p>Download my resume as a PDF for easy viewing and sharing.</p>
+          <a class="download-link" href="src/SurinderResume.pdf" download>Download Resume PDF</a>
+        </div>
       </div>
-
     </div>
-  </section>
+  </main>
 
+  <footer><div class="wrap">&copy; 2026 Surinder Singh. All rights reserved.</div></footer>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      const toggleBtn = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButtons = [document.getElementById("theme"), document.getElementById("theme-mobile")];
+      const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const themeStorageKey = "surinder-portfolio-theme";
 
-  toggleBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('hidden');
-  });
-    </script>
+      try {
+        const savedTheme = window.localStorage.getItem(themeStorageKey);
+        if (savedTheme === "light" || savedTheme === "dark") root.dataset.theme = savedTheme;
+      } catch (error) {
+        console.warn("Unable to load the saved theme preference.", error);
+      }
+
+      function updateThemeButtons() {
+        const dark = root.dataset.theme ? root.dataset.theme === "dark" : themeQuery.matches;
+        themeButtons.forEach((button) => {
+          button.setAttribute("aria-label", `Switch to ${dark ? "light" : "dark"} theme`);
+          button.setAttribute("title", `Switch to ${dark ? "light" : "dark"} theme`);
+          button.innerHTML = dark
+            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>'
+            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg>';
+        });
+      }
+
+      themeButtons.forEach((button) => button.addEventListener("click", () => {
+        const dark = root.dataset.theme ? root.dataset.theme === "dark" : themeQuery.matches;
+        const nextTheme = dark ? "light" : "dark";
+        root.dataset.theme = nextTheme;
+        try {
+          window.localStorage.setItem(themeStorageKey, nextTheme);
+        } catch (error) {
+          console.warn("Unable to save the theme preference.", error);
+        }
+        updateThemeButtons();
+      }));
+      themeQuery.addEventListener("change", () => {
+        if (!root.dataset.theme) updateThemeButtons();
+      });
+      updateThemeButtons();
+
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuToggle.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      });
+      mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+      }));
+    })();
+  </script>
 </body>
-
 </html>
